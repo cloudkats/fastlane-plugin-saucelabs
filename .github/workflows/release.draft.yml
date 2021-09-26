@@ -24,6 +24,8 @@ jobs:
     steps:
 
       - uses: actions/checkout@v2.3.4
+        with:
+          repository: 'cloudkats/fastlane-plugin-saucelabs'
 
       - name: check next version
         uses: anothrNick/github-tag-action@1.36.0
