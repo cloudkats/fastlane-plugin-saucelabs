@@ -45,7 +45,7 @@ jobs:
         uses: DamianReeves/write-file-action@master
         with:
           path: lib/fastlane/plugin/saucelabs/version.rb
-          contents: |
+          contents: >
             module Fastlane
               module Saucelabs
                 VERSION = "${{ steps.tag_strip.outputs.tag_w_v }}"
