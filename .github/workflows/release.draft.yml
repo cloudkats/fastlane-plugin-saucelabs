@@ -35,7 +35,7 @@ jobs:
 
       - name: plugin-version-change
         uses: DamianReeves/write-file-action@master
-        if: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.publish || 'false' }}
+        if: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.publish }}
         with:
           path: version
           contents: ${{ steps.tag.outputs.new_tag }}
@@ -43,7 +43,7 @@ jobs:
 
       - name: commit-changes
         uses: EndBug/add-and-commit@v7
-        if: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.publish || 'false' }}
+        if: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.publish }}
         with:
           message: 'chore: update version [skip ci]'
           add: 'version'
