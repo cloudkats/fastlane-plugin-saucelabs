@@ -1,5 +1,5 @@
 module Fastlane
   module Saucelabs
-    VERSION = File.read("version").strip
+    VERSION = "0.1.3"
   end
 end
