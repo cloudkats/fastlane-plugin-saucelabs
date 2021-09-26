@@ -1,0 +1,16 @@
+# These settings are synced to GitHub by https://probot.github.io/apps/settings/
+_extends: .github
+
+repository:
+  name: fastlane-plugin-saucelabs
+  description: "💥 SauceLabs plugin for fastlane"
+  topics: fastlane, saucelabs, fastlane-plugin, android, ios
+  homepage: https://github.com/cloudkats/fastlane-plugin-saucelabs
+  private: false
+  has_projects: false
+  has_wiki: false
+  is_template: false
+  has_downloads: false
+
+branches:
+  - name: main
