@@ -1,4 +1,4 @@
-name: publish-gem
+name: release-gem
 
 on:
   push:
@@ -13,7 +13,7 @@ jobs:
     steps:
       - uses: actions/checkout@v1
 
-      - name: Release Gem
+      - name: release-gem
         if: contains(github.ref, 'refs/tags/v')
         uses: cadwallion/publish-rubygems-action@master
         env:
