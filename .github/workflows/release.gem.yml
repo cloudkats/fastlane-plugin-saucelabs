@@ -21,7 +21,6 @@ jobs:
         with:
           bundler-cache: true
           ruby-version: ${{ env.RUBY_VERSION }}
-          working-directory: ${{ env.WORKING_DIRECTORY }}
 
       - run: |
           bundle check || bundle install --jobs=4 --retry=3 --path vendor/bundle
