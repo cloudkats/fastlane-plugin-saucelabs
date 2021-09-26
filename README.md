@@ -2,6 +2,7 @@
 
 [![fastlane Plugin Badge](https://rawcdn.githack.com/fastlane/fastlane/master/fastlane/assets/plugin-badge.svg)](https://rubygems.org/gems/fastlane-plugin-saucelabs)
 [![Gem Version](https://badge.fury.io/rb/fastlane-plugin-saucelabs.svg)](https://badge.fury.io/rb/fastlane-plugin-saucelabs)
+[![Gem Downloads](https://img.shields.io/gem/dt/fastlane-plugin-saucelabs?color=light-green)](https://img.shields.io/gem/dt/fastlane-plugin-saucelabs)
 
 ## Getting Started
 
