@@ -1,9 +1,8 @@
 name: release-gem
 
 on:
+  workflow_dispatch:
   push:
-    branches:
-      - "*"
     tags:
       - v*
 
@@ -16,9 +15,6 @@ jobs:
     if: "!contains(github.event.head_commit.message, 'skip ci')"
     steps:
       - uses: actions/checkout@v1
-
-      - run: |
-          echo "${{ toJson(github) }}"
 
       - name: setup-ruby-${{ env.RUBY_VERSION }}
         uses: ruby/setup-ruby@v1
