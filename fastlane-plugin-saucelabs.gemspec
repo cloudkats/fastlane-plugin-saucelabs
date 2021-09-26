@@ -9,7 +9,7 @@ Gem::Specification.new do |spec|
   spec.email         = 'cloudkats@gmail.com'
 
   spec.summary       = 'Sauce Labs android & ios configuraiton'
-  # spec.homepage      = "https://github.com/<GITHUB_USERNAME>/fastlane-plugin-saucelabs"
+  spec.homepage      = "https://github.com/cloudkats/fastlane-plugin-saucelabs"
   spec.license       = "MIT"
 
   spec.files         = Dir["lib/**/*"] + %w(README.md LICENSE)

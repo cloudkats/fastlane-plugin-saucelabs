@@ -33,12 +33,15 @@ jobs:
           WITH_V: true
           DEFAULT_BUMP: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.bump || 'patch' }}
 
+      - name: strip-v-from-tag
+        id: tag_strip
+        run: echo ::set-output name=tag_w_v::${${{ steps.tag.outputs.new_tag }}#v}
+
       - name: plugin-version-change
         uses: DamianReeves/write-file-action@master
-        if: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.publish }}
         with:
           path: version
-          contents: ${{ steps.tag.outputs.new_tag }}
+          contents: ${{ steps.tag_strip.outputs.tag_w_v }}
           write-mode: overwrite
 
       - name: commit-changes
