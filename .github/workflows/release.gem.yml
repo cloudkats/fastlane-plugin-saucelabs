@@ -6,6 +6,10 @@ on:
       - "*"
     tags:
       - v*
+
+env:
+  RUBY_VERSION: 2.7.0
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -13,10 +17,16 @@ jobs:
     steps:
       - uses: actions/checkout@v1
 
-      - name: release-gem
-        if: contains(github.ref, 'refs/tags/v')
-        uses: cadwallion/publish-rubygems-action@master
-        env:
-          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
-          RUBYGEMS_API_KEY: ${{secrets.RUBYGEMS_API_KEY}}
-          RELEASE_COMMAND: rake release
+      - run: 'echo "${{ toJson(github) }}"'
+
+      - name: setup-ruby-${{ env.RUBY_VERSION }}
+        uses: ruby/setup-ruby@v1
+        with:
+          bundler-cache: true
+          ruby-version: ${{ env.RUBY_VERSION }}
+          working-directory: ${{ env.WORKING_DIRECTORY }}
+
+      - run: |
+          bundle check || bundle install --jobs=4 --retry=3 --path vendor/bundle
+          bundle exec rake install
+          bundle exec rake release
