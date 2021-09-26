@@ -20,7 +20,7 @@ With [Sauce Labs](https://saucelabs.com/) you can continuously test your code be
 
 ## Usage
 
-To get started, first, [obtain an API token](https://appcenter.ms/settings/apitokens) in App Center. The API Token is used to authenticate with the App Center API in each call.
+To get started, first, [obtain an API token](https://docs.saucelabs.com/dev/api/index.html) in App Center. The API Token is used to authenticate with the App Center API in each call.
 
 ```ruby
 saucelabs_upload(
@@ -41,15 +41,30 @@ saucelabs_upload(
     file: 'app.ipa',
     region: 'us-west-1'
 )
-``
+```
 
 ### Help
 
 Once installed, information and help for an action can be printed out with this command:
 
-```bash
+```sh
 fastlane action saucelabs_upload # or any action included with this plugin
 ```
+
+### Parameters
+
+The action parameters `api_token`, `user_name`, `region`, and others can also be omitted when their values are [set as environment variables](https://docs.fastlane.tools/advanced/#environment-variables).
+
+#### `saucelabs_upload`
+
+| Key & Env Var | Description |
+|-----------------|--------------------|
+| `api_token` <br/> `SAUCE_ACCESS_KEY` | API Token for Sauce Labs |
+| `user_name` <br/> `SAUCE_USERNAME` | User name, as found in the Sauce Labs |
+| `region` <br/> `SAUCE_REGION` | Sauce Labs API region. Valid values are `us`, `eu`, `us-west-1`, `eu-central-1` |
+| `app_name`  | Build app name |
+| `file`  | Build filesystem location |
+| `app_desciription`  | (Optional) build description |
 
 ## Run tests for this plugin
 
@@ -66,7 +81,7 @@ rubocop -a
 
 ## Issues and Feedback
 
-For any other issues and feedback about this plugin, please submit it to this repository.
+For any other issues and feedback about this plugin, please open a [GitHub issue](https://github.com/cloudkats/fastlane-plugin-saucelabs/issues).
 
 ## Troubleshooting
 
