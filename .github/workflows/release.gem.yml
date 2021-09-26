@@ -17,7 +17,8 @@ jobs:
     steps:
       - uses: actions/checkout@v1
 
-      - run: 'echo "${{ toJson(github) }}"'
+      - run: |
+          echo "${{ toJson(github) }}"
 
       - name: setup-ruby-${{ env.RUBY_VERSION }}
         uses: ruby/setup-ruby@v1
