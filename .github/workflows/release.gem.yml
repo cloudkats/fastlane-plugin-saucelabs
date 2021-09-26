@@ -25,6 +25,7 @@ jobs:
       - run: |
           bundle check || bundle install --jobs=4 --retry=3 --path vendor/bundle
           bundle exec rake install
-          bundle exec rake release
+          version=$(cat version)
+          gem push pkg/fastlane-plugin-saucelabs-$version.gem -k $RUBYGEMS_API_KEY
         env:
           RUBYGEMS_API_KEY: ${{secrets.RUBYGEMS_API_KEY}}
