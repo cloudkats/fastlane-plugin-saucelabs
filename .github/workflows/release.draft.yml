@@ -35,7 +35,9 @@ jobs:
 
       - name: strip-v-from-tag
         id: tag_strip
-        run: echo ::set-output name=tag_w_v::${${{ steps.tag.outputs.new_tag }}#v}
+        run: |
+          TAG=${{ steps.tag.outputs.new_tag }}
+          echo ::set-output name=tag_w_v::${$TAG#v}
 
       - name: plugin-version-change
         uses: DamianReeves/write-file-action@master
