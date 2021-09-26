@@ -19,18 +19,12 @@ jobs:
       uses: DamianReeves/write-file-action@master
       with:
         path: version
-        contents: 0.4.5
+        contents: 0.0.4
         write-mode: overwrite
 
-    -
-      name: Create Pull Request
-      uses: peter-evans/create-pull-request@v3
-      if: success()
+    - name: commit-changes
+      uses: EndBug/add-and-commit@v7
       with:
-        commit-message: "chore: update version [skip ci]"
-        title: update version file
-        body: "chore: update version [skip ci]"
-        branch: update-changelog
-        base: ${{ github.head_ref }}
-        committer: GitHub <noreply@github.com>
-        author: actions-bot <actions-bot@users.noreply.github.com>
+        message: 'chore: update version [skip ci]'
+        add: 'version'
+        branch: main
