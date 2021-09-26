@@ -3,7 +3,7 @@ _extends: .github
 
 repository:
   name: fastlane-plugin-saucelabs
-  description: "💥 SauceLabs plugin for fastlane"
+  description: "💥 [SauceLabs](https://docs.saucelabs.com/dev/api/index.html) plugin for [Fastlane](https://fastlane.tools/)"
   topics: fastlane, saucelabs, fastlane-plugin, android, ios
   homepage: https://github.com/cloudkats/fastlane-plugin-saucelabs
   private: false

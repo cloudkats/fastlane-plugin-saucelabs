@@ -1,0 +1,36 @@
+name: testit
+
+on:
+  workflow_dispatch:
+
+
+
+jobs:
+  test-id:
+    runs-on: ubuntu-latest
+    name: Generate changelog for main branch
+
+    steps:
+    # To use this repository's private action, you must check out the repository
+    - name: Checkout
+      uses: actions/checkout@v2.3.4
+
+    - name: plugin-version-change
+      uses: DamianReeves/write-file-action@master
+      with:
+        path: version
+        contents: 0.4.5
+        write-mode: overwrite
+
+    -
+      name: Create Pull Request
+      uses: peter-evans/create-pull-request@v3
+      if: success()
+      with:
+        commit-message: "chore: update version [skip ci]"
+        title: update version file
+        body: "chore: update version [skip ci]"
+        branch: update-changelog
+        base: ${{ github.head_ref }}
+        committer: GitHub <noreply@github.com>
+        author: actions-bot <actions-bot@users.noreply.github.com>
