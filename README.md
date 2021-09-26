@@ -1,6 +1,7 @@
 # saucelabs plugin
 
 [![fastlane Plugin Badge](https://rawcdn.githack.com/fastlane/fastlane/master/fastlane/assets/plugin-badge.svg)](https://rubygems.org/gems/fastlane-plugin-saucelabs)
+[![Gem Version](https://badge.fury.io/rb/fastlane-plugin-saucelabs.svg)](https://badge.fury.io/rb/fastlane-plugin-saucelabs)
 
 ## Getting Started
 
@@ -10,17 +11,45 @@ This project is a [_fastlane_](https://github.com/fastlane/fastlane) plugin. To 
 fastlane add_plugin saucelabs
 ```
 
-## About saucelabs
+fastlane v2.96.0 or higher is required for all plugin-actions to function properly.
 
-Sauce Labs android & ios configuraiton
+## About Sace Labs
+With [Sauce Labs](https://saucelabs.com/) you can continuously test your code best. This plugin provides a set of actions to interact with Sauce Labs.
 
-**Note to author:** Add a more detailed description about this plugin here. If your plugin contains multiple actions, make sure to mention them here.
+`saucelabs_upload` allows you to push build artifacts to Sauce Lab (useful for test automation) and update its description.
 
-## Example
+## Usage
 
-Check out the [example `Fastfile`](fastlane/Fastfile) to see how to use this plugin. Try it by cloning the repo, running `fastlane install_plugins` and `bundle exec fastlane test`.
+To get started, first, [obtain an API token](https://appcenter.ms/settings/apitokens) in App Center. The API Token is used to authenticate with the App Center API in each call.
 
-**Note to author:** Please set up a sample project to make it easy for users to explore what your plugin does. Provide everything that is necessary to try out the plugin in this project (including a sample Xcode/Android project if necessary)
+```ruby
+saucelabs_upload(
+    user_name: "sauce username",
+    api_key:  "sauce api name",
+    app_name: "Android.MyCustomApp.apk",
+    file: 'app/build/outputs/apk/debug/app-debug.apk',
+    region: 'eu'
+)
+```
+
+```ruby
+saucelabs_upload(
+    user_name: "sauce username",
+    api_key:  "sauce api name",
+    app_name: "iOS.MyCustomApp.ipa",
+    app_description: "my iOS build description",
+    file: 'app.ipa',
+    region: 'us-west-1'
+)
+``
+
+### Help
+
+Once installed, information and help for an action can be printed out with this command:
+
+```bash
+fastlane action saucelabs_upload # or any action included with this plugin
+```
 
 ## Run tests for this plugin
 
