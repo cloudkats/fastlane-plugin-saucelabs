@@ -92,7 +92,7 @@ module Fastlane
                                            UI.user_error!("Could not find file to upload \"#{file}\" ") unless File.exist?(value) || Helper.test?
                                            accepted_formats = %w(.api .ipa)
                                            file_ext = Helper::SaucelabsHelper.file_extname(accepted_formats, value)
-                                           # UI.user_error!("Extension not supported for \"#{file}\" ") unless accepted_formats.include? file_ext
+                                           UI.user_error!("Extension not supported for \"#{file}\" ") unless accepted_formats.include? file_ext
                                          end
                                        end),
           FastlaneCore::ConfigItem.new(key: :app_name,
